@@ -1,0 +1,26 @@
+@import '../scss/variables';
+
+.nav__principal{
+    background-image: $background;
+    font-family: $font-title;
+    .nav-link{
+        color: $color-secundario;
+        &.active{
+            color: $color-terciario;
+        }
+    }
+
+    .nav-link.active, .nav-link.show{
+        color: $color-terciario;
+    }
+
+    .dropdown-menu{
+        background-color:$color-primario;
+    }
+    .dropdown-item{
+        color: $color-secundario; 
+        &:hover{
+            background-color: $color-primario-alpha;
+        }  
+    }
+}
