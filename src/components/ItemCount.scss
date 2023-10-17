@@ -1,0 +1,22 @@
+@import '../scss/_variables.scss';
+
+button{
+    background-color: $color-primario;
+    color:$color-secundario;
+    border:none;
+}
+
+.resta{
+    border-radius: 50% 0 0 50% ;
+}
+.suma{
+    border-radius: 0 50% 50% 0;
+}
+
+p{
+    display: inline-block;
+    text-align: center;
+    width: 3rem;
+    height: 100%;
+    border:1px solid $color-primario;
+}
