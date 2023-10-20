@@ -20,7 +20,7 @@ La Tienda Virtual de Tazas Sublimadas permite a los usuarios explorar y encontra
 
 ## Video PreEntrega 2
 
-![Demostracion de rutas y navegabilidad](https://github.com/tuusuario/turepositorio/raw/main/ejemplo.gif)
+![Demostracion de rutas y navegabilidad](https://github.com/Nicobusta/PreEntrega-Nicolas_Bustamante/blob/main/src/assets/Muestra.gif)
 
 ## Contacto
 
