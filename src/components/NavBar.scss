@@ -3,24 +3,34 @@
 .nav__principal{
     background-image: $background;
     font-family: $font-title;
-    .nav-link{
+    a{
         color: $color-secundario;
-        &.active{
-            color: $color-terciario;
-        }
+        text-decoration: none;
+       &:hover{
+        color:$color-terciario;
+       }
     }
 
-    .nav-link.active, .nav-link.show{
-        color: $color-terciario;
+     
+    .dropdown-toggle:hover{
+        color:$color-terciario;
     }
+
+    
 
     .dropdown-menu{
         background-color:$color-primario;
+
+        a{
+            display: flex;
+            flex-direction: column;
+            margin-left: 1rem;
+
+            &:hover{
+                color:$color-terciario;
+            }
+        }
+
     }
-    .dropdown-item{
-        color: $color-secundario; 
-        &:hover{
-            background-color: $color-primario-alpha;
-        }  
-    }
+    
 }

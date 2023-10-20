@@ -1,3 +1,4 @@
+@import '../scss/variables';
 .cards {
     display: flex;
     justify-content: space-evenly;
@@ -61,6 +62,9 @@
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
     padding: 16px 24px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .card__title{
       text-align: center;
 
@@ -69,6 +73,16 @@
     .card__text{
       width: 100%;
       border:none;
+
+    }
+
+    .card__link{
+        text-decoration: none;
+        color: $color-secundario;
+       background-color: $color-primario;
+       padding: 0.2rem 0.5rem;
+       border-radius: 5px;
+       
 
     }
 }

@@ -17,6 +17,11 @@ La Tienda Virtual de Tazas Sublimadas permite a los usuarios explorar y encontra
 
 - React.js para la interfaz de usuario.
 
+
+## Video PreEntrega 2
+
+![Demostracion de rutas y navegabilidad](https://github.com/tuusuario/turepositorio/raw/main/ejemplo.gif)
+
 ## Contacto
 
 Para preguntas o comentarios, contáctanos en  
