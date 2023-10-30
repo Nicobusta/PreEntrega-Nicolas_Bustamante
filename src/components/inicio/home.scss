@@ -1,0 +1,42 @@
+@import '../../scss/variables';
+
+.banner{
+    background-color: $color-primario;
+    margin-top: -1rem;
+    width: 100%;
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .texto{
+        color: $color-secundario;
+        width: 50vw;
+        height: 50%;
+        
+
+        p,h1{
+            width: 100%;
+            text-align: left;
+        }
+
+        p{
+            font-family: $font-texto;
+            line-height: 3rem;
+            font-size: 1.5rem;
+        }
+
+        h1{
+            font-family: $font-title;
+            position: relative;
+            top:-10vh;
+            
+            
+        }
+    }
+
+    img{
+        width: 45vw;
+        height: auto;
+    }
+}

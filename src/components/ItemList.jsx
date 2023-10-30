@@ -20,4 +20,4 @@ const ItemList = ({verDisenos}) => {
 
 }
 
-export default ItemList
+export default React.memo(ItemList)
