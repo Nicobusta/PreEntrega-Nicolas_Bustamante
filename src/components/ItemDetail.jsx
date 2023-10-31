@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ItemCount from './ItemCount';
 import { useParams } from 'react-router-dom';
@@ -19,14 +18,14 @@ const ItemDetail = ({verDisenos}) => {
       
         {
         detalle.map((diseno)=>{ 
-          const {id, nombre, img,desc}=diseno
+          const {id, nombre, img,desc,precio}=diseno
             return ( 
                 <Card style={{ width: '18rem' }} key={id}>
                     <Card.Img variant="top" src={`/img/${img}`} /> 
                     <Card.Body>
                         <Card.Title>{nombre}</Card.Title>
                         <Card.Text className='w-100 border-0'>{desc}</Card.Text>
-                        
+                        <Card.Title>{precio}</Card.Title>
                         <ItemCount diseno={diseno}/>
                     </Card.Body>
                 </Card>  

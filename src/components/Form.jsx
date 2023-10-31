@@ -26,7 +26,7 @@ function Formulario() {
     e.preventDefault();
     /* console.log(formData.email);
     console.log(formData.password);
-    console.log(formData); */
+    console.log(formData);  */
   }
 
     

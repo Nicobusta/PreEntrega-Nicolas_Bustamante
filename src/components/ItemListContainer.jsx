@@ -13,6 +13,7 @@ const disenos=[
     categoria:"Anime",
     img:"dragonBall.png",
     desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.",
+    precio:2950,
   },
   {
     id:2,
@@ -20,6 +21,7 @@ const disenos=[
     categoria:"Futbol",
     img:"river.png",
     desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.",
+    precio:2950,
   },
   {
     id:3,
@@ -27,6 +29,7 @@ const disenos=[
     categoria:"San Valentin",
     img:"stitch.png",
     desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.",
+    precio:2950,
   },
   {
     id:4,
@@ -34,6 +37,7 @@ const disenos=[
     categoria:"Anime",
     img:"dragonBall.png",
     desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.",
+    precio:2950,
   },
   {
     id:5,
@@ -41,6 +45,7 @@ const disenos=[
     categoria:"Futbol",
     img:"boca.png",
     desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.",
+    precio:2950,
   },
   {
     id:6,
@@ -48,6 +53,7 @@ const disenos=[
     categoria:"San Valentin",
     img:"mickey.png",
     desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.",
+    precio:2950,
   }
 ]
 

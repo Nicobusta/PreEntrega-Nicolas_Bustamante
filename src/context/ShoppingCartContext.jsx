@@ -22,15 +22,15 @@ export const CartProvider = ({children}) => {
             showConfirmButton: false,
             timer: 2000,
             timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
+            
           })
+          
 
         if(carrito.includes(item)){
             item.cantidad+=qty
             setCart(cart+qty)
+            setTotal(total+(item.precio*qty))
+           
               
               Toast.fire({
                 icon: 'success',
@@ -41,6 +41,7 @@ export const CartProvider = ({children}) => {
             item.cantidad=qty
             carrito.push(item)
             setCart(cart+qty)
+            setTotal(total+(item.precio*qty))
 
             Toast.fire({
                 icon: 'success',
@@ -53,23 +54,30 @@ export const CartProvider = ({children}) => {
 
     const deleteItem=(id) => {
         const eliminarItem=carrito.find((item) => item.id === id)
+
+        const {cantidad, precio} =eliminarItem
         const indice = carrito.indexOf(eliminarItem);
+
+        setTotal(total-(cantidad * precio))
+        setCart(cart-cantidad)
+
         carrito.splice(indice,1)
         
-        setCart(cart-eliminarItem.cantidad)
+        
         
     }
 
     const removeList=() => {
         carrito.length=0
         setCart(0)
+        setTotal(0)
         
     }
 
 
    
     return (
-        <CartContext.Provider value={{cart, setCart, addToCart, removeList, deleteItem, carrito}}>
+        <CartContext.Provider value={{cart, setCart, addToCart, removeList, deleteItem, carrito,total}}>
             {children}
         </CartContext.Provider>
     )

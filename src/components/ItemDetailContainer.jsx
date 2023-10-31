@@ -11,6 +11,7 @@ const ItemDetailContainer = () => {
       categoria:"Anime",
       img:"dragonBall.png",
       desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.",
+      precio:2950,
     },
     {
       id:2,
@@ -18,6 +19,7 @@ const ItemDetailContainer = () => {
       categoria:"Futbol",
       img:"river.png",
       desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.",
+      precio:2950,
     },
     {
       id:3,
@@ -25,6 +27,7 @@ const ItemDetailContainer = () => {
       categoria:"San Valentin",
       img:"stitch.png",
       desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.",
+      precio:2950,
     },
     {
       id:4,
@@ -32,6 +35,7 @@ const ItemDetailContainer = () => {
       categoria:"Anime",
       img:"dragonBall.png",
       desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.",
+      precio:2950,
     },
     {
       id:5,
@@ -39,6 +43,7 @@ const ItemDetailContainer = () => {
       categoria:"Futbol",
       img:"boca.png",
       desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.",
+      precio:2950,
     },
     {
       id:6,
@@ -46,6 +51,7 @@ const ItemDetailContainer = () => {
       categoria:"San Valentin",
       img:"mickey.png",
       desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.",
+      precio:2950,
     }
   ]
       
