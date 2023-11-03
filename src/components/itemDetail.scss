@@ -1,0 +1,43 @@
+.detalle{
+    display: flex;
+    align-items: center;
+
+    .descripcion{
+        width: 40vw;
+
+        p,h4,h1{
+            width: 80%;
+            margin-bottom: 2rem;
+            border: none;
+            text-align: center;
+        }
+    }
+
+}
+
+.scene{
+    position: absolute;
+    top:0;
+    left: 0;
+     width: 100%;
+     height: 100vh;
+    }
+    
+    .wrapper__detail{
+        width: 100%;
+        height: 80vh;
+        position: relative;
+        margin: auto;
+       }
+    
+    .container__detail{
+        width: 60vw;
+        height: 90vh;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            width: 80%;
+        }
+    }

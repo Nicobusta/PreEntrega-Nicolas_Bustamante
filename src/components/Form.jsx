@@ -1,53 +1,52 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
+import { addDoc,collection, getFirestore } from 'firebase/firestore';
 
 function Formulario() {
 
- /*  const [email, setEmail] = useState(""); 
-  const [pass, setPass] = useState("");
- */
-  // Función para manejar los cambios en el formulario
+  const [nombre, setNombre] = useState("");
+   const [email, setEmail] = useState(""); 
+  const [orderId, setOrderId] = useState("");
 
-  const [formData, setFormData] = useState({
-    email: "",
-    password: ""
-  });
+  const db=getFirestore();
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  }
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    /* console.log(formData.email);
-    console.log(formData.password);
-    console.log(formData);  */
+
+    addDoc(ordersCollection, order).then(({id}) => {
+      setOrderId(id);
+    })
   }
 
-    
-  return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email</Form.Label>
-        <Form.Control type="email" name="email" placeholder="Ingresar email" onChange={handleInputChange} value={formData.email} /* onChange={(e) => setEmail(e.target.value)} */ />
-        {/* <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text> */}
-      </Form.Group>
+  const order={
+    nombre,
+    email,
+  }
+  const ordersCollection=collection(db,"orders");
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" name="password" placeholder="Ingresar password" onChange={handleInputChange} value={formData.password} /* onChange={(e) => setPass(e.target.value)} *//>
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
+  return (
+    <>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email</Form.Label>
+          <Form.Control type="email" name="email" placeholder="Ingresar email" onChange={(e)=> setEmail(e.target.value)} />
+          {/* <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text> */}
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicNombre">
+          <Form.Label>Nombre</Form.Label>
+          <Form.Control type="text" name="nombre" placeholder="Ingresar nombre" onChange={(e)=> setNombre(e.target.value)}/>
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
+      <p>Tu orden: {orderId}</p>
+    </>
   );
 }
 

@@ -59,7 +59,7 @@ const CartWidget = () => {
               const {id, nombre, img, cantidad}=item
               return (
                 <article className='d-flex justify-content-center'>
-                  <img src={`/img/${img}`} width="100px" alt="" />
+                  <img src={img} width="100px" alt="" />
                   <h3>{nombre}</h3>
                   <h3>{cantidad}</h3>
                   <button onClick={()=>deleteItem(id)}>eliminar</button>
@@ -73,7 +73,7 @@ const CartWidget = () => {
           <h2>Total: ${total}</h2>
 
           <button onClick={removeList}>vaciar</button>
-          <Link to="/Cart" onClick={handleClose}>ir a carrito</Link>
+          <Link to={"/Cart"} onClick={handleClose}>ir a carrito</Link>
         </Offcanvas.Body>
       </Offcanvas>
     

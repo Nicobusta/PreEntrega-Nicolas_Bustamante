@@ -1,22 +1,43 @@
 @import '../scss/_variables.scss';
-
+.botones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
 button{
     background-color: $color-primario;
     color:$color-secundario;
     border:none;
 }
+.agregar{
+   padding: 0.5rem;
+   border-radius: 20px 0 20px 0;
+   &:hover{
+    background-color: $color-secundario;
+    color: $color-primario;
+   }
+}
 
 .resta{
     border-radius: 50% 0 0 50% ;
+    &:hover{
+        background-color: $color-secundario;
+        color: $color-primario;
+       }
 }
 .suma{
     border-radius: 0 50% 50% 0;
+    &:hover{
+        background-color: $color-secundario;
+        color: $color-primario;
+       }
 }
 
-p{
+.contador{
     display: inline-block;
     text-align: center;
-    width: 3rem;
+    width: 3rem !important;
     height: 100%;
-    border:1px solid $color-primario;
+    border:1px solid $color-primario !important;
 }

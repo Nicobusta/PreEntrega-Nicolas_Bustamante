@@ -1,80 +1,36 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 import ItemDetail from './ItemDetail'
+import {doc,getDoc, getFirestore} from 'firebase/firestore';
+
+import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
 
-  const disenos=[
-    {
-      id:1,
-      nombre:"Naruto",
-      categoria:"Anime",
-      img:"dragonBall.png",
-      desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.",
-      precio:2950,
-    },
-    {
-      id:2,
-      nombre:"River",
-      categoria:"Futbol",
-      img:"river.png",
-      desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.",
-      precio:2950,
-    },
-    {
-      id:3,
-      nombre:"Stitch",
-      categoria:"San Valentin",
-      img:"stitch.png",
-      desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.",
-      precio:2950,
-    },
-    {
-      id:4,
-      nombre:"DBZ",
-      categoria:"Anime",
-      img:"dragonBall.png",
-      desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.",
-      precio:2950,
-    },
-    {
-      id:5,
-      nombre:"Boca",
-      categoria:"Futbol",
-      img:"boca.png",
-      desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.",
-      precio:2950,
-    },
-    {
-      id:6,
-      nombre:"Mickey",
-      categoria:"San Valentin",
-      img:"mickey.png",
-      desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quas.",
-      precio:2950,
-    }
-  ]
-      
-      const mostrarDisenos= new Promise((resolve,reject)=>{
-        if(disenos.length>0){
-          setTimeout(()=>{
-            resolve(disenos)
-          },2000)
-        } else{
-          reject("No hay diseños")
-        }
-      })
-      
-      const [verDisenos, setDisenos] = useState([]);
+       const {id}=useParams()
+        
+        const [verDisenos, setDisenos] = useState([]);
       
         useEffect(() => { 
-          mostrarDisenos.then((result) => {
-            setDisenos(result);
-          });
-        }, []);
+          
+          const db = getFirestore()
+          const oneItem= doc(db, "disenos", `${id}`)
+
+          getDoc(oneItem).then((diseno)=>{
+            if(diseno.exists()){
+              const docs=diseno.data()
+              setDisenos(docs)
+            }
+
+          })
+
+        }, []); 
+
+      
 
   return (
     <div>
+      
       <ItemDetail verDisenos={verDisenos}/>
     </div>
   )

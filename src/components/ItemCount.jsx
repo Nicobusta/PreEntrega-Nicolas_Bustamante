@@ -4,9 +4,9 @@ import './ItemCount.scss'
 import { useContext } from 'react'
 import { CartContext } from '../context/ShoppingCartContext';
 
-const ItemCount = (diseno) => {
+const ItemCount = (verDisenos) => {
 
-  const {diseno:disenio}=diseno
+  const {verDisenos:disenio}=verDisenos
   
     const [contador,setContador]=useState(1);
 
@@ -23,13 +23,15 @@ const ItemCount = (diseno) => {
     
 
   return (
-    <>
-    <button className="resta" onClick={restar}>-</button>
-    <p>{contador}</p>
-    <button className="suma" onClick={sumar}>+</button>
+    <div className="botones">
+      <section>
+        <button className="resta" onClick={restar}>-</button>
+        <p className={"contador"}>{contador}</p>
+        <button className="suma" onClick={sumar}>+</button>
+      </section>
 
-    <button onClick={() =>addToCart(disenio, contador)}>Agregar al carrito</button>
-    </>
+    <button className={"agregar"} onClick={() =>addToCart(disenio, contador)}>Agregar al carrito</button>
+    </div >
   )
 }
 
