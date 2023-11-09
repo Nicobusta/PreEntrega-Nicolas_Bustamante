@@ -1,0 +1,18 @@
+@import '../scss/_variables.scss';
+
+.btn__form{
+    background-color: $color-primario;
+    text-decoration: none;
+    color: $color-secundario;
+    padding:0.5rem;
+    border-radius: 20px 0 20px 0;
+    &:hover{
+        color: $color-primario;
+        background-color: $color-secundario;  
+    }
+}
+form{
+    label{
+        border: $color-primario;
+    }
+}

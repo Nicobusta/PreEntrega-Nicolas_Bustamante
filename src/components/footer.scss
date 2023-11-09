@@ -1,0 +1,19 @@
+@import '../scss/variables';
+
+
+.logo{
+    background-color: $color-terciario;
+    svg{
+        fill: $color-secundario;
+        &:hover{
+            fill:$color-primario
+        }
+
+        margin-right: 2rem;
+    }
+
+}
+
+.derechos{
+    background-color: $color-secundario;
+}

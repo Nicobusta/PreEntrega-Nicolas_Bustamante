@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLayoutEffect, useRef } from "react";
 import { OrbitControls, useGLTF, useScroll } from "@react-three/drei";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame} from "@react-three/fiber";
 import {gsap} from 'gsap';
 import Diseno from "../Diseno";
 

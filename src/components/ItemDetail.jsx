@@ -9,10 +9,13 @@ const ItemDetail = ({verDisenos}) => {
 
   const {setImg} = useContext(CartContext);
 
-  const{nombre,img,desc,precio}=verDisenos 
- setImg(img)
+  const{nombre,img,desc,precio}=verDisenos
+  const cargarImagen=()=>{ 
+    setImg(img)
+  } 
+
   return (
-    <div className={'detalle'}>
+    <div onLoad={setImg(img)} className={'detalle'}>
       <section className={"container__detail"}>
         <article className={"wrapper__detail"}>
           <Suspense fallback={null}> 
@@ -20,10 +23,10 @@ const ItemDetail = ({verDisenos}) => {
           </Suspense>
         </article>
       </section> 
-      <section className={"descripcion"}>
-          <h1>{nombre}</h1>
-          <p>{desc}</p>
-          <h4>${precio}</h4>
+      <section className={"descripcion d-flex flex-column justify-content-center align-items-center"}>
+          <h1 className={"fs-1"}>{nombre}</h1>
+          <p className={"fs-4"}>{desc}</p>
+          <h4 className={"fs-1"}>${precio}</h4>
           <ItemCount verDisenos={verDisenos}/> 
       </section>
                     

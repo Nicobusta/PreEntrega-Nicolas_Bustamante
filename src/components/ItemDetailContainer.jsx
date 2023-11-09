@@ -8,7 +8,6 @@ import { useParams } from 'react-router-dom';
 const ItemDetailContainer = () => {
 
        const {id}=useParams()
-        
         const [verDisenos, setDisenos] = useState([]);
       
         useEffect(() => { 

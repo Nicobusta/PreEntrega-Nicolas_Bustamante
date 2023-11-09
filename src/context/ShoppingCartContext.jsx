@@ -71,6 +71,7 @@ export const CartProvider = ({children}) => {
         carrito.length=0
         setCart(0)
         setTotal(0)
+        handleClose()
         
     }
 

@@ -38,6 +38,15 @@ const CartWidget = () => {
     }
   }
 
+  const validarCarrito=(element)=>{
+    if(carrito.length == 1){
+      deleteItem(element)
+      handleClose()
+    }else{
+      deleteItem(element)
+    }
+  }
+
   return (
     <>  
 
@@ -49,20 +58,24 @@ const CartWidget = () => {
       </a>
 
       <Offcanvas show={show} onHide={handleClose} placement={'end'}>
-        <Offcanvas.Header closeButton>
+        <Offcanvas.Header closeButton className='encabezado'>
           <Offcanvas.Title>Carrito</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <section>
+          <section className='cuerpo'>
             {
             carrito.map((item) => {
               const {id, nombre, img, cantidad}=item
               return (
-                <article className='d-flex justify-content-center'>
+                <article className='elemento d-flex justify-content-between aling-items-center'>
                   <img src={img} width="100px" alt="" />
-                  <h3>{nombre}</h3>
-                  <h3>{cantidad}</h3>
-                  <button onClick={()=>deleteItem(id)}>eliminar</button>
+                  <h4>{nombre}</h4>
+                  <h4>{cantidad}</h4>
+                  <div onClick={()=>validarCarrito(id)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className={"eliminar"} viewBox="0 0 16 16">
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                    </svg>
+                  </div>
                 </article>
               )
               
@@ -72,8 +85,9 @@ const CartWidget = () => {
 
           <h2>Total: ${total}</h2>
 
-          <button onClick={removeList}>vaciar</button>
-          <Link to={"/Cart"} onClick={handleClose}>ir a carrito</Link>
+          <Link className="ir__carrito" to={"/Cart"} onClick={handleClose} >ir a carrito</Link>
+
+          <button className="vaciar__carrito" onClick={()=>{handleClose(); removeList();}} >Vaciar carrito</button>
         </Offcanvas.Body>
       </Offcanvas>
     

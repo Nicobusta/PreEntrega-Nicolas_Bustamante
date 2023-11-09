@@ -28,24 +28,20 @@ function Formulario() {
 
   return (
     <>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email</Form.Label>
-          <Form.Control type="email" name="email" placeholder="Ingresar email" onChange={(e)=> setEmail(e.target.value)} />
-          {/* <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text> */}
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicNombre">
+      <Form className="d-flex flex-column w-50 mx-auto" onSubmit={handleSubmit}>
+      <Form.Group className="mb-3" controlId="formBasicNombre">
           <Form.Label>Nombre</Form.Label>
           <Form.Control type="text" name="nombre" placeholder="Ingresar nombre" onChange={(e)=> setNombre(e.target.value)}/>
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email</Form.Label>
+          <Form.Control type="email" name="email" placeholder="Ingresar email" onChange={(e)=> setEmail(e.target.value)} />
+        </Form.Group>
+        <Button className="btn__form w-50 mx-auto" type="submit">
+          Enviar
         </Button>
+        <p>Tu orden: {orderId}</p>
       </Form>
-      <p>Tu orden: {orderId}</p>
     </>
   );
 }

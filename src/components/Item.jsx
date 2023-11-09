@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 
 const Item = ({diseno}) => {
-  const {id, nombre, img}=diseno.data
+  const {nombre, img}=diseno.data
 
   return (
     <>

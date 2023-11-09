@@ -1,7 +1,7 @@
 import React from 'react'
 import { Canvas } from '@react-three/fiber'
 import  { Taza } from './Taza'
-import { OrbitControls, Environment, ScrollControls } from '@react-three/drei'
+import {Environment, ScrollControls } from '@react-three/drei'
 
 const Scene = () => {
   return (

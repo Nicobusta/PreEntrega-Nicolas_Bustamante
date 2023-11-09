@@ -1,5 +1,5 @@
 import React from 'react'
-import { OrbitControls, useGLTF, useScroll } from "@react-three/drei";
+import { OrbitControls, useGLTF} from "@react-three/drei";
 import Diseno from "./Diseno";
 import { useContext} from 'react'
 import { CartContext } from '../context/ShoppingCartContext';

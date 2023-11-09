@@ -1,8 +1,13 @@
 @import '../scss/variables';
 
 .nav__principal{
+    position: fixed;
+    width: 100%;
+    top:0;
+
     background-image: $background;
     font-family: $font-title;
+    z-index: 1;
     a{
         color: $color-secundario;
         text-decoration: none;
@@ -20,6 +25,7 @@
 
     .dropdown-menu{
         background-color:$color-primario;
+        z-index: 999;
 
         a{
             display: flex;

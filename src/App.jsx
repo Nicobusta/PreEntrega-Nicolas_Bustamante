@@ -7,6 +7,8 @@ import Contacto from './components/Contacto';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import CartProvider from './context/ShoppingCartContext';
 import Cart from './components/Cart';
+import { Footer } from './components/footer';
+
 
 
 function App() {
@@ -25,9 +27,10 @@ function App() {
             <Route exact path='/diseno/:id' element={<ItemDetailContainer />}/>
             <Route exact path='/categoria/:categoria' element={<ItemListContainer greeting={greeting} />}/>
         </Routes>
+        <Footer/>
      </CartProvider>
     </BrowserRouter> 
-      
+    
     </>
   )
 }

@@ -19,11 +19,9 @@ const ItemListContainer = ({greeting}) => {
 
     getDocs(itemsCollection).then((diseno)=>{
 
-      /* const docs=diseno.docs.map((doc)=>doc.data()) */
-
       const docs = diseno.docs.map((doc) => ({
-        id: doc.id, // Agregamos la ID del documento
-        data: doc.data(), // Agregamos los datos del documento
+        id: doc.id,
+        data: doc.data(), 
       }));
       
       setDisenos(docs)
