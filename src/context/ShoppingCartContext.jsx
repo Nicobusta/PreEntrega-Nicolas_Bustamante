@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import Swal from "sweetalert2";
+import { useNavigate } from 'react-router-dom';
 
 export const CartContext= createContext(null)
 
@@ -12,10 +13,9 @@ export const CartProvider = ({children}) => {
     const [total, setTotal] =useState(0)
     const [img, setImg] = useState("")
 
-    
+    const navigate = useNavigate();
 
     const addToCart = (item, qty) => {
-
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -25,9 +25,16 @@ export const CartProvider = ({children}) => {
             
           })
           
+          let itemExists = false;
 
-        if(carrito.includes(item)){
-            item.cantidad+=qty
+          carrito.forEach(cartItem => {
+              if (cartItem.id === item.id) {
+                  cartItem.cantidad += qty;
+                  itemExists = true;
+              }
+          });
+
+        if(itemExists){
             setCart(cart+qty)
             setTotal(total+(item.precio*qty))
            
@@ -44,8 +51,11 @@ export const CartProvider = ({children}) => {
             setTotal(total+(item.precio*qty))
 
             Toast.fire({
-                icon: 'success',
-                title: `Añadio ${item.nombre} al carrito`
+                imageUrl: `${item.img}`,
+                imageHeight: 80,
+                imageAlt: `Compro ${item.nombre}`,
+                title: `Se agregaron ${qty} unidades de ${item.nombre}`,
+                width: '20rem',
               })
         } 
         
@@ -54,25 +64,69 @@ export const CartProvider = ({children}) => {
 
     const deleteItem=(id) => {
         const eliminarItem=carrito.find((item) => item.id === id)
+        const {cantidad, nombre, precio} =eliminarItem
 
-        const {cantidad, precio} =eliminarItem
-        const indice = carrito.indexOf(eliminarItem);
+        Swal.fire({
+            title: `Estas por eliminar ${nombre}?`,
+            text: `Vas a eliminar un ${cantidad} del carrito!`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si, eliminar!"
+          }).then((result) => {
+            if (result.isConfirmed) {
 
-        setTotal(total-(cantidad * precio))
-        setCart(cart-cantidad)
+                const indice = carrito.indexOf(eliminarItem);
+                setTotal(total-(cantidad * precio))
+                setCart(cart-cantidad)
+                carrito.splice(indice,1)
 
-        carrito.splice(indice,1)
-        
-        
+                if(carrito.length == 0){
+                  navigate('/diseno')
+                }
+            
+                Swal.fire({
+                    
+                    icon: "success",
+                    title: "Producto eliminado",
+                    showConfirmButton: false,
+                    timer: 1200
+                  });
+                  
+            }
+          });
         
     }
 
     const removeList=() => {
-        carrito.length=0
-        setCart(0)
-        setTotal(0)
-        handleClose()
+        Swal.fire({
+            title: `Desea vaciar el carrito?`,
+            text: `Vas a eliminar ${cart} productos del carrito!`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si, eliminar!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+
+                carrito.length=0
+                setCart(0)
+                setTotal(0)    
+            
+                Swal.fire({
+                    icon: "success",
+                    title: "Carrito vaciado",
+                    showConfirmButton: false,
+                    timer: 1200
+                  });
+                  
+            }
+          });
         
+
+            
     }
 
 

@@ -2,20 +2,13 @@ import React, { Suspense } from 'react'
 import ItemCount from './ItemCount';
 import Scene from './SceneDetail';
 import "./ItemDetail.scss"
-import { useContext } from 'react'
-import { CartContext } from '../context/ShoppingCartContext';
 
 const ItemDetail = ({verDisenos}) => {
 
-  const {setImg} = useContext(CartContext);
-
-  const{nombre,img,desc,precio}=verDisenos
-  const cargarImagen=()=>{ 
-    setImg(img)
-  } 
+  const{nombre,desc,precio}=verDisenos
 
   return (
-    <div onLoad={setImg(img)} className={'detalle'}>
+    <div className={'detalle'}>
       <section className={"container__detail"}>
         <article className={"wrapper__detail"}>
           <Suspense fallback={null}> 

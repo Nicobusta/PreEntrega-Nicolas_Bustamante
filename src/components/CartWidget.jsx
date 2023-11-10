@@ -66,8 +66,9 @@ const CartWidget = () => {
             {
             carrito.map((item) => {
               const {id, nombre, img, cantidad}=item
+              
               return (
-                <article className='elemento d-flex justify-content-between aling-items-center'>
+                <article key={id} className='elemento d-flex justify-content-between aling-items-center'>
                   <img src={img} width="100px" alt="" />
                   <h4>{nombre}</h4>
                   <h4>{cantidad}</h4>

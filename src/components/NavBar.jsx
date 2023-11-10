@@ -33,7 +33,6 @@ const NavBar = () => {
                 <Link to={"/categoria/Futbol"}>Futbol</Link>
                 <Link to={"/categoria/San Valentin"}>San Valentin</Link>
               </NavDropdown>
-              <div><Link to={"/contacto"}>Contacto</Link></div>
             </Nav>
           </Navbar.Collapse>
 
