@@ -4,7 +4,7 @@ Este es un proyecto llevado a cabo como practica en CoderHouse de una tienda vir
 
 ## Descripción del Proyecto
 
-La Tienda Virtual de Tazas Sublimadas permite a los usuarios explorar y encontrar tazas con diseños únicos.
+La Tienda Virtual de Tazas Sublimadas permite a los usuarios explorar, encontrar tazas con diseños únicos y visualizar el modelo 3D.
 
 
 ## Funcionalidades Principales
@@ -12,10 +12,14 @@ La Tienda Virtual de Tazas Sublimadas permite a los usuarios explorar y encontra
 - Explorar el catálogo de tazas sublimadas.
 - Ver detalles de productos y precios.
 - Agregar productos al carrito de compras.
+- Finalizar la compra y retornar un codigo unico de dicha compra.
 
 ## Tecnologías Utilizadas
 
 - React.js para la interfaz de usuario.
+- React Boostrap como frameworks.
+- Three.js para la implemantación de las animaciones 3D.
+- SweetAlert en las ventanas emergentes.
 
 
 ## Video PreEntrega 2
