@@ -8,10 +8,10 @@ import { useNavigate } from 'react-router-dom';
 
 function Cart() {
 
-  const { carrito, total,deleteItem } = useContext(CartContext);
+  const { carrito, total,deleteItem} = useContext(CartContext);
   const navigate = useNavigate();
 
-
+//no permite entrar a cart si no hay productos en el carrito
   useEffect(() => {
     if(carrito.length == 0){
       navigate('/diseno')

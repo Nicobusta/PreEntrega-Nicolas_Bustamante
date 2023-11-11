@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { addDoc,collection, getFirestore } from 'firebase/firestore';
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { useContext } from 'react'
+import { CartContext } from '../context/ShoppingCartContext';
 
 
 function Formulario() {
@@ -11,6 +13,8 @@ function Formulario() {
   const [nombre, setNombre] = useState("");
    const [email, setEmail] = useState(""); 
   const [orderId, setOrderId] = useState("");
+
+  const {vaciarCarrito} = useContext(CartContext);
 
   const db=getFirestore();
   const navigate = useNavigate();
@@ -30,31 +34,36 @@ function Formulario() {
         
         addDoc(ordersCollection, order).then(({id}) => {
           setOrderId(id);
-        })/* .then(() => {
-          
-            Swal.fire(`Gracias por su compra, tu orden de compra es: ${orderId}`)
-            .then(() => {
-              navigate("/")
-            })
-        }) */
+        })
+       
+        Swal.fire({
+          title: "Estamos procesando su compra",
+          html: "No tomara mucho tiempo.",
+          didOpen: () => {
+            Swal.showLoading(); 
+          }
+        })
         
-         
       }
-    });
-    
-      useEffect(() => {
-        Swal.fire(`Gracias por su compra, tu orden de compra es: ${orderId}`)
-            .then(() => {
-              navigate("/")
-            })
-      }, [orderId]);
-      
+    })  
   }
+
+  useEffect(() => {
+    if(orderId!==""){
+      Swal.fire(`Gracias por su compra, tu orden de compra es: ${orderId}`)
+            .then(() => {
+              vaciarCarrito();
+            }) 
+            
+    }
+  }, [orderId])	
+
 
   const order={
     nombre,
     email,
   }
+
   const ordersCollection=collection(db,"orders");  
 
   return (

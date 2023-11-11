@@ -99,6 +99,13 @@ export const CartProvider = ({children}) => {
         
     }
 
+    const vaciarCarrito=() => {
+        carrito.length=0
+        setCart(0)
+        setTotal(0) 
+        navigate('/diseno')
+    }
+
     const removeList=() => {
         Swal.fire({
             title: `Desea vaciar el carrito?`,
@@ -111,9 +118,7 @@ export const CartProvider = ({children}) => {
           }).then((result) => {
             if (result.isConfirmed) {
 
-                carrito.length=0
-                setCart(0)
-                setTotal(0)    
+                vaciarCarrito()   
             
                 Swal.fire({
                     icon: "success",
@@ -132,7 +137,7 @@ export const CartProvider = ({children}) => {
 
    
     return (
-        <CartContext.Provider value={{cart, setCart, addToCart, removeList, deleteItem, carrito,total, img, setImg}}>
+        <CartContext.Provider value={{cart, setCart, addToCart, removeList, vaciarCarrito, deleteItem, carrito,total, img, setImg}}>
             {children}
         </CartContext.Provider>
     )
